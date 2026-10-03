@@ -132,6 +132,12 @@ document.getElementById("new-report").addEventListener("click", function () {
   formSection.scrollIntoView({ behavior: "smooth" });
 });
 
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("./service-worker.js");
+  });
+}
+
 const debateForm = document.getElementById("debate-form");
 const debateStatus = document.getElementById("debate-status");
 const debateSubmitBtn = document.getElementById("debate-submit-btn");

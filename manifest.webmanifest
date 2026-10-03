@@ -1,0 +1,17 @@
+{
+  "name": "VTV",
+  "short_name": "VTV",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1747b5",
+  "icons": [
+    {
+      "src": "logo.jpeg",
+      "sizes": "1254x1254",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}
