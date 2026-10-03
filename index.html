@@ -4,18 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Você Tem Voz — Denúncias Anônimas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="background-glow"></div>
+
   <header class="hero">
     <div class="container">
-      <h1>Você Tem Voz</h1>
-      <p>Um espaço seguro, anônimo e reservado para denunciar bullying, preconceito, discriminação ou qualquer situação que não foi resolvida corretamente pela escola — ou que você ainda não contou para a escola.</p>
+      <span class="eyebrow">Espaço seguro e anônimo</span>
+      <h1>Sua história merece ser <span class="gradient-text">ouvida</span>.</h1>
+      <p>Denuncie bullying, preconceito, discriminação ou qualquer situação que não foi resolvida corretamente pela escola — ou que você ainda não contou para ela.</p>
       <div class="badges">
         <span>100% anônimo</span>
         <span>Sem necessidade de nome</span>
         <span>Seus dados não serão divulgados</span>
       </div>
+      <a href="#form-section" class="hero-cta">Fazer uma denúncia</a>
     </div>
   </header>
 
@@ -25,45 +32,59 @@
       <p class="muted">Preencha apenas o que você se sentir confortável. Nenhum campo de identificação é obrigatório.</p>
 
       <form id="report-form">
-        <label for="ano_aluno">Em qual ano/série você estuda?</label>
-        <select id="ano_aluno" name="ano_aluno" required>
-          <option value="">Selecione...</option>
-          <option>6º ano</option>
-          <option>7º ano</option>
-          <option>8º ano</option>
-          <option>9º ano</option>
-          <option>1ª série</option>
-          <option>2ª série</option>
-          <option>3ª série</option>
-          <option>Prefiro não informar</option>
-        </select>
+        <div class="field">
+          <label for="ano_aluno">Em qual ano/série você estuda?</label>
+          <select id="ano_aluno" name="ano_aluno" required>
+            <option value="">Selecione...</option>
+            <option>6º ano</option>
+            <option>7º ano</option>
+            <option>8º ano</option>
+            <option>9º ano</option>
+            <option>1ª série</option>
+            <option>2ª série</option>
+            <option>3ª série</option>
+            <option>Prefiro não informar</option>
+          </select>
+        </div>
 
-        <label for="quando">Quando aconteceu?</label>
-        <input type="date" id="quando" name="quando" required>
+        <div class="field">
+          <label for="quando">Quando aconteceu?</label>
+          <input type="date" id="quando" name="quando" required>
+        </div>
 
-        <label for="tipo">Tipo de situação</label>
-        <select id="tipo" name="tipo" required>
-          <option value="">Selecione...</option>
-          <option>Bullying</option>
-          <option>Preconceito</option>
-          <option>Discriminação</option>
-          <option>Assédio</option>
-          <option>Violência verbal</option>
-          <option>Violência física</option>
-          <option>Outro</option>
-        </select>
+        <div class="field">
+          <label for="tipo">Tipo de situação</label>
+          <select id="tipo" name="tipo" required>
+            <option value="">Selecione...</option>
+            <option>Bullying</option>
+            <option>Preconceito</option>
+            <option>Discriminação</option>
+            <option>Assédio</option>
+            <option>Violência verbal</option>
+            <option>Violência física</option>
+            <option>Outro</option>
+          </select>
+        </div>
 
-        <label for="local">Onde aconteceu? <span class="optional">opcional</span></label>
-        <input type="text" id="local" name="local" placeholder="Ex.: sala de aula, ônibus, rede social...">
+        <div class="field">
+          <label for="local">Onde aconteceu? <span class="optional">opcional</span></label>
+          <input type="text" id="local" name="local" placeholder="Ex.: sala de aula, ônibus, rede social...">
+        </div>
 
-        <label for="descricao">O que aconteceu?</label>
-        <textarea id="descricao" name="descricao" rows="6" required placeholder="Descreva a situação com suas palavras. Você não precisa incluir nomes."></textarea>
+        <div class="field">
+          <label for="descricao">O que aconteceu?</label>
+          <textarea id="descricao" name="descricao" rows="6" required placeholder="Descreva a situação com suas palavras. Você não precisa incluir nomes."></textarea>
+        </div>
 
-        <label for="nome_vitima">Seu nome <span class="optional">opcional</span></label>
-        <input type="text" id="nome_vitima" name="nome_vitima" placeholder="Deixe em branco para permanecer anônimo">
+        <div class="field">
+          <label for="nome_vitima">Seu nome <span class="optional">opcional</span></label>
+          <input type="text" id="nome_vitima" name="nome_vitima" placeholder="Deixe em branco para permanecer anônimo">
+        </div>
 
-        <label for="nome_autor">Nome de quem praticou o ato <span class="optional">opcional</span></label>
-        <input type="text" id="nome_autor" name="nome_autor" placeholder="Deixe em branco se preferir">
+        <div class="field">
+          <label for="nome_autor">Nome de quem praticou o ato <span class="optional">opcional</span></label>
+          <input type="text" id="nome_autor" name="nome_autor" placeholder="Deixe em branco se preferir">
+        </div>
 
         <input type="hidden" name="protocolo" id="protocolo">
         <input type="hidden" name="data_envio" id="data_envio">
