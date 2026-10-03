@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Você Tem Voz — Denúncias Anônimas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1>Você Tem Voz</h1>
+      <p>Um espaço seguro, anônimo e reservado para denunciar bullying, preconceito, discriminação ou qualquer situação que não foi resolvida corretamente pela escola — ou que você ainda não contou para a escola.</p>
+      <div class="badges">
+        <span>100% anônimo</span>
+        <span>Sem necessidade de nome</span>
+        <span>Seus dados não serão divulgados</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="form-section" class="card">
+      <h2>Conte o que aconteceu</h2>
+      <p class="muted">Preencha apenas o que você se sentir confortável. Nenhum campo de identificação é obrigatório.</p>
+
+      <form id="report-form">
+        <label for="ano-aluno">Em qual ano/série você estuda?</label>
+        <select id="ano-aluno" required>
+          <option value="">Selecione...</option>
+          <option>6º ano</option>
+          <option>7º ano</option>
+          <option>8º ano</option>
+          <option>9º ano</option>
+          <option>1ª série</option>
+          <option>2ª série</option>
+          <option>3ª série</option>
+          <option>Prefiro não informar</option>
+        </select>
+
+        <label for="quando">Quando aconteceu?</label>
+        <input type="date" id="quando" required>
+
+        <label for="tipo">Tipo de situação</label>
+        <select id="tipo" required>
+          <option value="">Selecione...</option>
+          <option>Bullying</option>
+          <option>Preconceito</option>
+          <option>Discriminação</option>
+          <option>Assédio</option>
+          <option>Violência verbal</option>
+          <option>Violência física</option>
+          <option>Outro</option>
+        </select>
+
+        <label for="local">Onde aconteceu? <span class="optional">opcional</span></label>
+        <input type="text" id="local" placeholder="Ex.: sala de aula, ônibus, rede social...">
+
+        <label for="descricao">O que aconteceu?</label>
+        <textarea id="descricao" rows="6" required placeholder="Descreva a situação com suas palavras. Você não precisa incluir nomes."></textarea>
+
+        <label for="nome-vitima">Seu nome <span class="optional">opcional</span></label>
+        <input type="text" id="nome-vitima" placeholder="Deixe em branco para permanecer anônimo">
+
+        <label for="nome-autor">Nome de quem praticou o ato <span class="optional">opcional</span></label>
+        <input type="text" id="nome-autor" placeholder="Deixe em branco se preferir">
+
+        <button type="submit" id="submit-btn">Enviar denúncia com segurança</button>
+        <p id="form-status" class="status"></p>
+      </form>
+    </section>
+
+    <section id="success-section" class="card success hidden">
+      <div class="success-icon">✓</div>
+      <h2>Sua denúncia foi enviada</h2>
+      <p>Obrigado por falar. <strong>Você não está sozinho.</strong></p>
+      <p>Seu relato foi registrado de forma anônima e será tratado com cuidado. Você pode baixar um certificado de envio para comprovar que a denúncia foi registrada.</p>
+      <p class="protocol"><strong>Protocolo:</strong> <span id="protocol-code"></span></p>
+      <button id="download-certificate">Baixar certificado de envio</button>
+      <button id="new-report" class="secondary">Fazer outra denúncia</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Se você estiver em perigo imediato, procure um adulto de confiança ou ligue para o <strong>190</strong>.</p>
+    <p>Você Tem Voz — espaço seguro contra bullying, preconceito e discriminação.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
