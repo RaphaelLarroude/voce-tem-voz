@@ -1,4 +1,5 @@
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xkjgdyyw";
+const DEBATE_FORMSPREE_ENDPOINT = "https://formspree.io/f/mnpnernj";
 
 const form = document.getElementById("report-form");
 const formSection = document.getElementById("form-section");
@@ -129,4 +130,35 @@ document.getElementById("new-report").addEventListener("click", function () {
   successSection.classList.add("hidden");
   formSection.classList.remove("hidden");
   formSection.scrollIntoView({ behavior: "smooth" });
+});
+
+const debateForm = document.getElementById("debate-form");
+const debateStatus = document.getElementById("debate-status");
+const debateSubmitBtn = document.getElementById("debate-submit-btn");
+const debateSuccess = document.getElementById("debate-success");
+
+debateForm.addEventListener("submit", async function (event) {
+  event.preventDefault();
+  debateStatus.className = "status loading";
+  debateStatus.textContent = "Enviando sua opinião...";
+  debateSubmitBtn.disabled = true;
+
+  try {
+    const response = await fetch(DEBATE_FORMSPREE_ENDPOINT, {
+      method: "POST",
+      body: new FormData(debateForm),
+      headers: { Accept: "application/json" }
+    });
+
+    if (!response.ok) throw new Error("Falha no envio");
+
+    debateForm.classList.add("hidden");
+    debateStatus.textContent = "";
+    debateSuccess.classList.remove("hidden");
+  } catch (error) {
+    debateStatus.className = "status error";
+    debateStatus.textContent = "Não foi possível enviar sua opinião agora. Tente novamente.";
+  } finally {
+    debateSubmitBtn.disabled = false;
+  }
 });

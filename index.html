@@ -104,6 +104,44 @@
       <button id="new-report" class="secondary">Fazer outra denúncia</button>
     </section>
 
+    <section id="debate-section" class="card debate-section">
+      <h2>Você participaria de um debate?</h2>
+      <p class="muted">Queremos saber a opinião dos estudantes sobre a realização de um debate no colégio sobre bullying, preconceito e discriminação.</p>
+
+      <form id="debate-form">
+        <div class="field">
+          <label for="concorda_debate">Você concorda com a realização de um debate no colégio sobre esse tema?</label>
+          <select id="concorda_debate" name="concorda_debate" required>
+            <option value="">Selecione...</option>
+            <option>Sim</option>
+            <option>Não</option>
+            <option>Talvez</option>
+            <option>Prefiro não responder</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="participaria_debate">Você gostaria de participar desse debate?</label>
+          <select id="participaria_debate" name="participaria_debate" required>
+            <option value="">Selecione...</option>
+            <option>Sim</option>
+            <option>Não</option>
+            <option>Talvez</option>
+            <option>Prefiro não responder</option>
+          </select>
+        </div>
+
+        <button type="submit" id="debate-submit-btn">Enviar minha opinião</button>
+        <p id="debate-status" class="status"></p>
+      </form>
+
+      <div id="debate-success" class="debate-success hidden">
+        <div class="success-icon">✓</div>
+        <h3>Obrigado pela sua opinião!</h3>
+        <p>Sua resposta foi registrada de forma anônima.</p>
+      </div>
+    </section>
+
     <section class="card social-section">
       <h2>Acompanhe o projeto</h2>
       <p class="muted">Siga nossa conta e entre no nosso grupo para acompanhar ações, informações e apoio contra bullying, preconceito e discriminação.</p>
