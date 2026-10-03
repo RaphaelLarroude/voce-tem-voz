@@ -2,6 +2,16 @@
 
 Site responsivo para denúncias anônimas de bullying, preconceito, discriminação e outras situações escolares.
 
+## Envio das denúncias
+
+As denúncias são enviadas pelo Formspree para o endpoint configurado em `script.js`:
+
+```js
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xkjgdyyw";
+```
+
+Os relatos chegam no e-mail conectado ao formulário Formspree.
+
 ## Como publicar no GitHub Pages
 
 1. Entre no repositório.
@@ -10,16 +20,6 @@ Site responsivo para denúncias anônimas de bullying, preconceito, discriminaç
 4. Selecione a branch `main` e a pasta `/ (root)`.
 5. Clique em **Save**.
 6. Em alguns minutos, o site ficará disponível no endereço mostrado na página.
-
-## Configurar o envio por e-mail
-
-O site usa o EmailJS. Crie uma conta gratuita, configure um serviço de e-mail e um template, depois preencha o arquivo `config.js`:
-
-- `publicKey`
-- `serviceId`
-- `templateId`
-
-As denúncias serão enviadas para `1912043@aluno.cmc.com.br`.
 
 ## Certificado de envio
 

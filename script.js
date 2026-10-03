@@ -1,4 +1,4 @@
-emailjs.init(EMAILJS_CONFIG.publicKey);
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xkjgdyyw";
 
 const form = document.getElementById("report-form");
 const formSection = document.getElementById("form-section");
@@ -26,31 +26,38 @@ function simpleHash(text) {
 form.addEventListener("submit", async function (event) {
   event.preventDefault();
 
-  const data = {
-    ano_aluno: document.getElementById("ano-aluno").value,
-    quando: document.getElementById("quando").value,
-    tipo: document.getElementById("tipo").value,
-    local: document.getElementById("local").value || "Não informado",
-    descricao: document.getElementById("descricao").value.trim(),
-    nome_vitima: document.getElementById("nome-vitima").value.trim() || "Anônimo",
-    nome_autor: document.getElementById("nome-autor").value.trim() || "Não informado",
-    recipient_email: EMAILJS_CONFIG.recipientEmail
-  };
-
   const now = new Date();
-  data.protocolo = makeProtocol();
-  data.data_envio = now.toLocaleString("pt-BR");
+  const protocolo = makeProtocol();
+
+  document.getElementById("protocolo").value = protocolo;
+  document.getElementById("data_envio").value = now.toLocaleString("pt-BR");
+
+  const formData = new FormData(form);
 
   status.className = "status loading";
   status.textContent = "Enviando sua denúncia com segurança...";
   submitBtn.disabled = true;
 
   try {
-    await emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, data);
+    const response = await fetch(FORMSPREE_ENDPOINT, {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" }
+    });
 
-    lastReport = { ...data, envio: now.toISOString() };
-    document.getElementById("protocol-code").textContent = data.protocolo;
+    if (!response.ok) throw new Error("Falha no envio");
 
+    lastReport = {
+      protocolo,
+      envio: now.toISOString(),
+      tipo: formData.get("tipo"),
+      ano_aluno: formData.get("ano_aluno"),
+      quando: formData.get("quando"),
+      nome_vitima: formData.get("nome_vitima") || "Anônimo",
+      descricao: formData.get("descricao")
+    };
+
+    document.getElementById("protocol-code").textContent = protocolo;
     formSection.classList.add("hidden");
     successSection.classList.remove("hidden");
     successSection.scrollIntoView({ behavior: "smooth" });

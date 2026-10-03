@@ -25,8 +25,8 @@
       <p class="muted">Preencha apenas o que você se sentir confortável. Nenhum campo de identificação é obrigatório.</p>
 
       <form id="report-form">
-        <label for="ano-aluno">Em qual ano/série você estuda?</label>
-        <select id="ano-aluno" required>
+        <label for="ano_aluno">Em qual ano/série você estuda?</label>
+        <select id="ano_aluno" name="ano_aluno" required>
           <option value="">Selecione...</option>
           <option>6º ano</option>
           <option>7º ano</option>
@@ -39,10 +39,10 @@
         </select>
 
         <label for="quando">Quando aconteceu?</label>
-        <input type="date" id="quando" required>
+        <input type="date" id="quando" name="quando" required>
 
         <label for="tipo">Tipo de situação</label>
-        <select id="tipo" required>
+        <select id="tipo" name="tipo" required>
           <option value="">Selecione...</option>
           <option>Bullying</option>
           <option>Preconceito</option>
@@ -54,16 +54,19 @@
         </select>
 
         <label for="local">Onde aconteceu? <span class="optional">opcional</span></label>
-        <input type="text" id="local" placeholder="Ex.: sala de aula, ônibus, rede social...">
+        <input type="text" id="local" name="local" placeholder="Ex.: sala de aula, ônibus, rede social...">
 
         <label for="descricao">O que aconteceu?</label>
-        <textarea id="descricao" rows="6" required placeholder="Descreva a situação com suas palavras. Você não precisa incluir nomes."></textarea>
+        <textarea id="descricao" name="descricao" rows="6" required placeholder="Descreva a situação com suas palavras. Você não precisa incluir nomes."></textarea>
 
-        <label for="nome-vitima">Seu nome <span class="optional">opcional</span></label>
-        <input type="text" id="nome-vitima" placeholder="Deixe em branco para permanecer anônimo">
+        <label for="nome_vitima">Seu nome <span class="optional">opcional</span></label>
+        <input type="text" id="nome_vitima" name="nome_vitima" placeholder="Deixe em branco para permanecer anônimo">
 
-        <label for="nome-autor">Nome de quem praticou o ato <span class="optional">opcional</span></label>
-        <input type="text" id="nome-autor" placeholder="Deixe em branco se preferir">
+        <label for="nome_autor">Nome de quem praticou o ato <span class="optional">opcional</span></label>
+        <input type="text" id="nome_autor" name="nome_autor" placeholder="Deixe em branco se preferir">
+
+        <input type="hidden" name="protocolo" id="protocolo">
+        <input type="hidden" name="data_envio" id="data_envio">
 
         <button type="submit" id="submit-btn">Enviar denúncia com segurança</button>
         <p id="form-status" class="status"></p>
@@ -86,8 +89,6 @@
     <p>Você Tem Voz — espaço seguro contra bullying, preconceito e discriminação.</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
